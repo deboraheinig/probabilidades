@@ -1,0 +1,75 @@
+#include <iostream>
+#include <time.h>
+
+int opcao() {
+
+    int num = 0;
+
+    std::cout << "1. Rolar um dado" << std::endl;
+    std::cout << "2. Rolar mais de um dado" << std::endl;
+    std::cout << "3. Avaliar o problema de Monty Hall (DESAFIO)" << std::endl;
+    std::cin >> num;
+
+    return num;
+}
+
+void calculo(int lados, int roll, int vet[]) {
+
+    float resultcalc, porcent;
+
+    std::cout << "Quantidade de vezes de cada resultado; \n";
+    // Executar 1x, parâmetro, repetição
+    for (int i = 1; i <= lados; i++) {
+        std::cout << i << ": " << vet[i] << std::endl;
+
+    }
+
+    resultcalc = roll / 100;
+    for (int k = 1; k <= lados; k++) {
+        porcent = vet[k] * resultcalc;
+        std::cout << k << ": " << porcent << "%" << std::endl;
+    }
+}
+
+void opcao1(int lados, int roll) {
+
+    int vet[100];
+
+    // Executar 1x, parâmetro, repetição
+    for (int i = 0; i < roll; i++) {
+        int result = rand() % lados;
+        vet[result]++;
+    }
+}
+
+int main()
+{
+
+    int lados, roll, num;
+    srand(time(NULL));
+    num = opcao();
+
+    if (num == 1) {
+
+        std::cout << "Qual o numero de lados do seu dado?" << std::endl;
+        std::cin >> lados;
+
+        std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
+        std::cin >> roll;
+
+        opcao1(lados, roll);
+    }
+    if (num == 2) {
+
+
+        std::cout << "Qual o numero de lados do seu dado?" << std::endl;
+        std::cin >> lados;
+
+        std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
+        std::cin >> roll;
+
+
+
+
+    }
+}
