@@ -15,61 +15,65 @@ int opcao() {
 
 void calculo(int lados, int roll, int vet[]) {
 
-    float resultcalc, porcent;
+    double resultcalc, porcent;
 
     std::cout << "Quantidade de vezes de cada resultado; \n";
     // Executar 1x, parâmetro, repetição
-    for (int i = 1; i <= lados; i++) {
-        std::cout << i << ": " << vet[i] << std::endl;
+    for (int i = 0; i < lados; i++) {
+        std::cout << i+1 << ": " << vet[i] << std::endl;
 
     }
 
-    resultcalc = roll / 100;
-    for (int k = 1; k <= lados; k++) {
-        porcent = vet[k] * resultcalc;
-        std::cout << k << ": " << porcent << "%" << std::endl;
+    resultcalc = roll * 0.01;
+    for (int k = 0; k < lados; k++) {
+        porcent = vet[k] / resultcalc;
+        std::cout << k+1 << ": " << porcent << "%" << std::endl;
     }
 }
 
 void opcao1(int lados, int roll) {
 
-    int vet[100];
+    int vet[100] = {0};
 
     // Executar 1x, parâmetro, repetição
     for (int i = 0; i < roll; i++) {
         int result = rand() % lados;
         vet[result]++;
     }
+    calculo(lados, roll, vet);
+}
+
+//void opcao2()
+
+
+void dados(int &lados, int &roll) {
+  
+     do{
+        std::cout << "Qual o numero de lados do seu dado?" << std::endl;
+        std::cin >> lados;
+
+        std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
+        std::cin >> roll;
+    }while (lados > 0 && lados <= 100 && roll > 0 && lados * roll > 100);
+
 }
 
 int main()
 {
 
-    int lados, roll, num;
+    int lados = 0, roll = 0, num;
     srand(time(NULL));
     num = opcao();
 
     if (num == 1) {
-
-        std::cout << "Qual o numero de lados do seu dado?" << std::endl;
-        std::cin >> lados;
-
-        std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
-        std::cin >> roll;
-
+     
+        dados(lados, roll);
         opcao1(lados, roll);
     }
-    if (num == 2) {
 
+   if (num == 2 ) {
 
-        std::cout << "Qual o numero de lados do seu dado?" << std::endl;
-        std::cin >> lados;
-
-        std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
-        std::cin >> roll;
-
-
-
-
+       // dados();
+       /// opcao2()
     }
 }
