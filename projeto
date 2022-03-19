@@ -6,6 +6,14 @@ int inicio() {
     do {
 
         std::cout << " 1. Rolar um dado " << std::endl;
+        std::cout << " 2. Rolar mais de#include <iostream>
+#include <time.h>
+
+int inicio() {
+    int num = 0;
+    do {
+
+        std::cout << " 1. Rolar um dado " << std::endl;
         std::cout << " 2. Rolar mais de um dado " << std::endl;
         std::cout << " 3. Avaliar o problema de Monty Hall (DESAFIO) " << std::endl;
         std::cin >> num;
@@ -75,7 +83,7 @@ void dados(int& lados, int& roll, int& qdado) {
 
         std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
         std::cin >> roll;
-    } while (lados < 0 && lados >= 100 && roll < 0 && lados * qdado < 100 );
+    } while (lados <= 0 or lados >= 100 or roll <= 0 or lados * qdado > 100 );
 
 }
 
@@ -87,7 +95,7 @@ void dados(int &lados, int &roll) {
 
         std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
         std::cin >> roll;
-    } while (lados < 0 && lados >= 100 && roll < 0); 
+    } while (lados <= 0 or lados >= 100 or roll <= 0); 
 
 }
 
@@ -109,4 +117,3 @@ int main()
         opcao(lados, roll, qdado);
     }
 }
-
