@@ -6,14 +6,6 @@ int inicio() {
     do {
 
         std::cout << " 1. Rolar um dado " << std::endl;
-        std::cout << " 2. Rolar mais de#include <iostream>
-#include <time.h>
-
-int inicio() {
-    int num = 0;
-    do {
-
-        std::cout << " 1. Rolar um dado " << std::endl;
         std::cout << " 2. Rolar mais de um dado " << std::endl;
         std::cout << " 3. Avaliar o problema de Monty Hall (DESAFIO) " << std::endl;
         std::cin >> num;
@@ -32,7 +24,7 @@ void calculo(int lados, int roll, int vet[], int qdado) {
 
     }
     for (int k = 0; k < qdado * lados; k++) {
-        porcent = ((qdado * lados) / roll) * 100;
+        porcent = (vet[k] / roll) * 100;
         std::cout << k + 1 << ": " << porcent << "%" << std::endl;
         /// std::cout << "vk: " << vet[k] << std::endl;
     }
