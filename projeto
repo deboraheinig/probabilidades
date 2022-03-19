@@ -3,7 +3,7 @@
 
 int inicio() {
     int num = 0;
-    do{
+    do {
 
         std::cout << " 1. Rolar um dado " << std::endl;
         std::cout << " 2. Rolar mais de um dado " << std::endl;
@@ -26,7 +26,7 @@ void calculo(int lados, int roll, int vet[], int qdado) {
     for (int k = 0; k < qdado * lados; k++) {
         porcent = ((qdado * lados) / roll) * 100;
         std::cout << k + 1 << ": " << porcent << "%" << std::endl;
-       /// std::cout << "vk: " << vet[k] << std::endl;
+        /// std::cout << "vk: " << vet[k] << std::endl;
     }
 }
 
@@ -43,7 +43,7 @@ void opcao(int lados, int roll) {
 }
 
 void opcao(int lados, int roll, int qdado) {
-    int vet[100] = { 0 }, matriz[100][100] = {0};
+    int vet[100] = { 0 }, resp[100] = {0}, matriz[100][100] = { 0 };
     for (int i = 0; i < qdado; i++) {
         for (int j = 0; j < roll; j++) {
             matriz[i][j] = rand() % lados;
@@ -51,17 +51,33 @@ void opcao(int lados, int roll, int qdado) {
         }
     }
     for (int i = 0; i < qdado; i++) {
-        int cont = 0;
         for (int j = 0; j < roll; j++) {
-           cont = cont + matriz[i][j];
-           // std::cout << vet[i] << std::endl;
+            vet[j] = vet[j] + matriz[i][j];
+            // std::cout << vet[i] << std::endl;
         }
-        vet[cont]++;
-        //std::cout <<"veti " << vet[i] << std::endl;
     }
+    for (int i = 0; i < roll; i++) {
+        int n = vet[i];
+        resp[n]++;
+    }
+
     calculo(lados, roll, vet, qdado);
 }
 
+void dados(int& lados, int& roll, int& qdado) {
+
+    do {
+        std::cout << "Qual o numero de dados? " << std::endl;
+        std::cin >> qdado;
+
+        std::cout << "Qual o numero de lados do seu dado?" << std::endl;
+        std::cin >> lados;
+
+        std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
+        std::cin >> roll;
+    } while (lados < 0 && lados >= 100 && roll < 0 && lados * qdado < 100 );
+
+}
 
 void dados(int &lados, int &roll) {
 
@@ -71,28 +87,26 @@ void dados(int &lados, int &roll) {
 
         std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
         std::cin >> roll;
-    } while (lados > 0 && lados <= 100 && roll > 0 && lados * roll > 100);
+    } while (lados < 0 && lados >= 100 && roll < 0); 
 
 }
 
 int main()
 {
 
-    int lados = 0, roll = 0, num, qdado = 0;
+    int lados = 0, roll = 0, num = 0, qdado = 0;
     srand(time(NULL));
     num = inicio();
-    
+
     if (num == 1) {
         dados(lados, roll);
         opcao(lados, roll);
     }
 
     if (num == 2) {
-        std::cout << "Quantos dados?:  " << std::endl;
-        std::cin >> qdado;
-        dados(lados, roll);
+
+        dados(lados, roll, qdado);
         opcao(lados, roll, qdado);
     }
 }
-
 
