@@ -24,7 +24,7 @@ void calculo(int lados, int roll, int vet[]) {
    
 }
 
-void calculo(int lados, int roll, int resp[], int qdado) {
+void calculo(int lados, int roll, float resp[], int qdado) {
 
     //std::cout << "roll " << roll << std::endl;
     std::cout << "Quantidade de vezes de cada resultado; \n";
@@ -48,7 +48,7 @@ void opcao(int lados, int roll) {
 }
 
 void opcao(int lados, int roll, int qdado) {
-    int vet[100] = { 0 }, resp[100] = {0}, matriz[100][100] = { 0 };
+    float vet[100] = { 0 }, resp[100] = {0}, matriz[100][100] = { 0 };
     for (int i = 0; i < qdado; i++) {
         for (int j = 0; j < roll; j++) {
             matriz[i][j] = rand() % lados;
@@ -107,6 +107,12 @@ int main()
         opcao(lados, roll);
     }
 
+    if (num == 2) {
+
+        dados(lados, roll, qdado);
+        opcao(lados, roll, qdado);
+    }
+}
     if (num == 2) {
 
         dados(lados, roll, qdado);
