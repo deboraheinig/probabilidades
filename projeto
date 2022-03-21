@@ -21,7 +21,7 @@ void calculo(int lados, int roll, int vet[]) {
     for (int i = 0; i < lados; i++) {
         std::cout << i + 1 << ": " << vet[i] << " - " << vet[i] / roll * 100 << "%" << std::endl;
     }
-   
+
 }
 
 void calculo(int lados, int roll, float resp[], int qdado) {
@@ -31,7 +31,7 @@ void calculo(int lados, int roll, float resp[], int qdado) {
     // Executar 1x, parâmetro, repetição
     for (int i = 0; i < qdado * lados; i++) {
         //std::cout << resp[i] / roll * 100 << "%" << std::endl;
-        std::cout << i + 1 << ": " << resp[i] << " - " << resp[i]/roll*100 << "%" << std::endl;
+        std::cout << i + 1 << ": " << resp[i] << " - " << resp[i] / roll * 100 << "%" << std::endl;
     }
 
 }
@@ -48,7 +48,7 @@ void opcao(int lados, int roll) {
 }
 
 void opcao(int lados, int roll, int qdado) {
-    float vet[100] = { 0 }, resp[100] = {0}, matriz[100][100] = { 0 };
+    float vet[100] = { 0 }, resp[100] = { 0 }, matriz[100][100] = { 0 };
     for (int i = 0; i < qdado; i++) {
         for (int j = 0; j < roll; j++) {
             matriz[i][j] = rand() % lados;
@@ -68,6 +68,15 @@ void opcao(int lados, int roll, int qdado) {
     calculo(lados, roll, resp, qdado);
 }
 
+void monty() {
+  
+
+
+
+  
+
+}
+
 void dados(int& lados, int& roll, int& qdado) {
 
     do {
@@ -79,11 +88,11 @@ void dados(int& lados, int& roll, int& qdado) {
 
         std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
         std::cin >> roll;
-    } while (lados <= 0 or lados >= 100 or roll <= 0 or lados * qdado > 100 );
+    } while (lados <= 0 or lados >= 100 or roll <= 0 or lados * qdado > 100);
 
 }
 
-void dados(int &lados, int &roll) {
+void dados(int& lados, int& roll) {
 
     do {
         std::cout << "Qual o numero de lados do seu dado?" << std::endl;
@@ -91,14 +100,14 @@ void dados(int &lados, int &roll) {
 
         std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
         std::cin >> roll;
-    } while (lados <= 0 or lados >= 100 or roll <= 0); 
+    } while (lados <= 0 or lados >= 100 or roll <= 0);
 
 }
 
 int main()
 {
 
-    int lados = 0, roll = 0, num = 0, qdado = 0;
+    int lados = 0, roll = 0, num = 0, qdado = 0, porta = 0;
     srand(time(NULL));
     num = inicio();
 
@@ -112,9 +121,9 @@ int main()
         dados(lados, roll, qdado);
         opcao(lados, roll, qdado);
     }
-}
-    if (num == 2) {
+    if (num == 3) {
 
-        dados(lados, roll, qdado);
-        opcao(lados, roll, qdado);
+        monty();
+
     }
+}   
