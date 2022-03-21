@@ -13,7 +13,7 @@ int inicio() {
     return num;
 }
 
-void calculo(int lados, int roll, int vet[]) {
+void calculo(int lados, int roll, float vet[]) {
 
     std::cout << "roll " << roll << std::endl;
     std::cout << "Quantidade de vezes de cada resultado; \n";
@@ -38,7 +38,7 @@ void calculo(int lados, int roll, float resp[], int qdado) {
 
 void opcao(int lados, int roll) {
 
-    int vet[100] = { 0 };
+    float vet[100] = { 0 };
     // Executar 1x, parâmetro, repetição
     for (int i = 0; i < roll; i++) {
         int result = rand() % lados;
@@ -68,14 +68,14 @@ void opcao(int lados, int roll, int qdado) {
     calculo(lados, roll, resp, qdado);
 }
 
-void monty() {
+//void monty() {
   
 
 
 
   
 
-}
+//}
 
 void dados(int& lados, int& roll, int& qdado) {
 
@@ -88,7 +88,7 @@ void dados(int& lados, int& roll, int& qdado) {
 
         std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
         std::cin >> roll;
-    } while (lados <= 0 or lados >= 100 or roll <= 0 or lados * qdado > 100);
+    } while (lados <= 0 or lados > 100 or roll <= 0 or lados * qdado > 100);
 
 }
 
@@ -100,7 +100,7 @@ void dados(int& lados, int& roll) {
 
         std::cout << "Quantas vezes voce quer rolar o dado?" << std::endl;
         std::cin >> roll;
-    } while (lados <= 0 or lados >= 100 or roll <= 0);
+    } while (lados <= 0 or lados > 100 or roll <= 0);
 
 }
 
@@ -121,9 +121,9 @@ int main()
         dados(lados, roll, qdado);
         opcao(lados, roll, qdado);
     }
-    if (num == 3) {
+   // if (num == 3) {
 
-        monty();
+     //   monty();
 
-    }
-}   
+   // }
+}  
